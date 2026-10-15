@@ -283,7 +283,12 @@ def seed_books_if_empty():
 # Ensure tables and initial catalogue exist on startup.
 with app.app_context():
     db.create_all()
+    app.logger.info("Database tables created successfully.")
+
     seed_books_if_empty()
+
+    book_count = Book.query.count()
+    app.logger.info("Total books in database: %s", book_count)
 
 
 # Optional commands for manual database setup
