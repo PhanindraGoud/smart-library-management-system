@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <a class="brand" href="{{ url_for('index') }}">📚 Smart Library</a>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('loans') }}">Loans & Returns</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">SMART LIBRARY MANAGEMENT SYSTEM</p>
+            <h1>Your library, <span>smarter.</span></h1>
+            <p>Discover books, search with your voice, and manage your library in one place.</p>
+
+            <form class="search-form" action="{{ url_for('index') }}" method="GET">
+                <input
+                    id="searchInput"
+                    type="search"
+                    name="q"
+                    value="{{ q }}"
+                    placeholder="Search books, authors, or categories..."
+                    aria-label="Search books"
+                >
+                <select name="category" aria-label="Filter by category">
+                    <option value="">All categories</option>
+                    {% for item in categories %}
+                    <option value="{{ item }}" {% if selected_category == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn">Search</button>
+                <button type="button" id="voiceButton" class="btn btn-secondary">
+                    🎙 Voice Search
+                </button>
+            </form>
+            <p id="voiceStatus" class="status-message" aria-live="polite"></p>
+        </section>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section class="messages">
+                    {% for category, message in messages %}
+                    <p class="alert {{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </section>
+            {% endif %}
+        {% endwith %}
+
+        <section class="stats">
+            <article class="stat-card">
+                <span>Total book titles</span>
+                <strong>{{ book_count }}</strong>
+            </article>
+            <article class="stat-card">
+                <span>Registered students</span>
+                <strong>{{ student_count }}</strong>
+            </article>
+            <article class="stat-card">
+                <span>Active loans</span>
+                <strong>{{ active_loans }}</strong>
+            </article>
+        </section>
+
+        <section class="section-heading">
+            <div>
+                <p class="eyebrow">EXPLORE THE COLLECTION</p>
+                <h2>Book catalogue</h2>
+            </div>
+            <span class="result-count">{{ books|length }} results</span>
+        </section>
+
+        <section class="book-grid">
+            {% for book in books %}
+            <article class="book-card">
+                <div class="book-cover">📖</div>
+                <div class="book-info">
+                    <span class="category-tag">{{ book.category }}</span>
+                    <h3>{{ book.title }}</h3>
+                    <p class="author">by {{ book.author }}</p>
+                    <p class="isbn">ISBN: {{ book.isbn }}</p>
+                    {% if book.available_copies > 0 %}
+                    <span class="availability available">
+                        {{ book.available_copies }} available
+                    </span>
+                    {% else %}
+                    <span class="availability unavailable">Currently unavailable</span>
+                    {% endif %}
+                    <p class="copy-count">Total copies: {{ book.total_copies }}</p>
+                </div>
+            </article>
+            {% else %}
+            <div class="empty-state">
+                <h3>No books found</h3>
+                <p>Try another search term or select All categories.</p>
+                <a class="btn" href="{{ url_for('index') }}">Show all books</a>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="register-section">
+            <div>
+                <p class="eyebrow">JOIN THE LIBRARY</p>
+                <h2>Register a student</h2>
+                <p>Add a student so that books can be issued to them.</p>
+            </div>
+
+            <form action="{{ url_for('add_student') }}" method="POST" class="student-form">
+                <label for="studentName">Full name</label>
+                <input id="studentName" name="name" type="text" required maxlength="150"
+                       placeholder="Enter student name">
+
+                <label for="studentNumber">Student ID / Roll number</label>
+                <input id="studentNumber" name="student_number" type="text" required maxlength="40"
+                       placeholder="Enter unique student ID">
+
+                <label for="studentEmail">Email address</label>
+                <input id="studentEmail" name="email" type="email" maxlength="150"
+                       placeholder="student@example.com">
+
+                <button type="submit" class="btn">Register Student</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Smart Library Management System · Built with Python and Flask</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
