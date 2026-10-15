@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans & Returns | Smart Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <a class="brand" href="{{ url_for('index') }}">📚 Smart Library</a>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('loans') }}">Loans & Returns</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <section class="hero compact-hero">
+            <p class="eyebrow">LIBRARY OPERATIONS</p>
+            <h1>Loans & <span>returns</span></h1>
+            <p>Issue books to registered students and keep track of returns.</p>
+        </section>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section class="messages">
+                    {% for category, message in messages %}
+                    <p class="alert {{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </section>
+            {% endif %}
+        {% endwith %}
+
+        <section class="register-section loan-form-section">
+            <div>
+                <p class="eyebrow">NEW TRANSACTION</p>
+                <h2>Issue a book</h2>
+                <p>Choose a registered student and an available book.</p>
+            </div>
+
+            {% if students and books %}
+            <form action="{{ url_for('issue_book') }}" method="POST" class="student-form">
+                <label for="studentId">Student</label>
+                <select id="studentId" name="student_id" required>
+                    <option value="">Select a student</option>
+                    {% for student in students %}
+                    <option value="{{ student.id }}">
+                        {{ student.name }} ({{ student.student_number }})
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <label for="bookId">Available book</label>
+                <select id="bookId" name="book_id" required>
+                    <option value="">Select a book</option>
+                    {% for book in books %}
+                    <option value="{{ book.id }}">
+                        {{ book.title }} — {{ book.available_copies }} available
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <p class="form-hint">The loan period is 14 days from the issue date.</p>
+                <button type="submit" class="btn">Issue Book</button>
+            </form>
+            {% else %}
+            <div class="empty-state">
+                {% if not students %}
+                <h3>No registered students yet</h3>
+                <p>Register a student on the homepage before issuing a book.</p>
+                {% else %}
+                <h3>No books available</h3>
+                <p>All books may be issued or the catalogue may be empty.</p>
+                {% endif %}
+                <a class="btn" href="{{ url_for('index') }}">Go to homepage</a>
+            </div>
+            {% endif %}
+        </section>
+
+        <section class="loans-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">TRANSACTION HISTORY</p>
+                    <h2>All loans</h2>
+                </div>
+                <a class="text-link" href="{{ url_for('index') }}">← Back to catalogue</a>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Student</th>
+                            <th>Issue date</th>
+                            <th>Due date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for loan in loans %}
+                        <tr>
+                            <td>{{ loan.book.title }}</td>
+                            <td>
+                                {{ loan.student.name }}
+                                <small class="table-subtitle">
+                                    {{ loan.student.student_number }}
+                                </small>
+                            </td>
+                            <td>{{ loan.issue_date.strftime('%d %b %Y') }}</td>
+                            <td>{{ loan.due_date.strftime('%d %b %Y') }}</td>
+                            <td>
+                                {% if loan.return_date %}
+                                <span class="availability available">Returned</span>
+                                {% elif loan.due_date < today %}
+                                <span class="availability unavailable">Overdue</span>
+                                {% else %}
+                                <span class="availability available">Issued</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if not loan.return_date %}
+                                <form action="{{ url_for('return_book', loan_id=loan.id) }}"
+                                      method="POST"
+                                      onsubmit="return confirm('Confirm book return?');">
+                                    <button class="btn btn-small" type="submit">Return</button>
+                                </form>
+                                {% else %}
+                                <span class="returned-date">
+                                    {{ loan.return_date.strftime('%d %b %Y') }}
+                                </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" class="empty-table">
+                                No loans recorded yet. Issue your first book above.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Smart Library Management System · Built with Python and Flask</p>
+        </div>
+    </footer>
+</body>
+</html>
