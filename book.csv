@@ -1,0 +1,102 @@
+
+title,author,category,isbn,total_copies
+Python Crash Course,Eric Matthes,Programming,978000000001,2
+Automate the Boring Stuff with Python,Al Sweigart,Programming,978000000002,2
+Learning Python,Mark Lutz,Programming,978000000003,2
+Fluent Python,Luciano Ramalho,Programming,978000000004,2
+Effective Python,Brett Slatkin,Programming,978000000005,3
+Clean Code,Robert C. Martin,Programming,978000000006,2
+The Pragmatic Programmer,David Thomas and Andrew Hunt,Programming,978000000007,2
+Design Patterns,Erich Gamma et al.,Programming,978000000008,2
+Head First Java,Kathy Sierra and Bert Bates,Programming,978000000009,2
+Java The Complete Reference,Herbert Schildt,Programming,978000000010,3
+Effective Java,Joshua Bloch,Programming,978000000011,2
+C Programming Language,Brian W. Kernighan and Dennis M. Ritchie,Programming,978000000012,2
+C++ Primer,Stanley B. Lippman et al.,Programming,978000000013,2
+Eloquent JavaScript,Marijn Haverbeke,Programming,978000000014,2
+You Don't Know JS Yet,Kyle Simpson,Programming,978000000015,3
+HTML and CSS,Jon Duckett,Web Development,978000000016,2
+Learning Web Design,Jennifer Niederst Robbins,Web Development,978000000017,2
+JavaScript The Definitive Guide,David Flanagan,Web Development,978000000018,2
+CSS Secrets,Lea Verou,Web Development,978000000019,2
+Flask Web Development,Miguel Grinberg,Web Development,978000000020,3
+Django for Beginners,William S. Vincent,Web Development,978000000021,2
+Learning SQL,Alan Beaulieu,Database,978000000022,2
+SQL Cookbook,Anthony Molinaro and Robert de Graaf,Database,978000000023,2
+Database System Concepts,Abraham Silberschatz et al.,Database,978000000024,2
+Fundamentals of Database Systems,Ramez Elmasri and Shamkant Navathe,Database,978000000025,3
+MySQL Cookbook,Paul DuBois,Database,978000000026,2
+Designing Data-Intensive Applications,Martin Kleppmann,Database,978000000027,2
+Computer Networking A Top-Down Approach,James Kurose and Keith Ross,Networking,978000000028,2
+Computer Networks,Andrew S. Tanenbaum and David J. Wetherall,Networking,978000000029,2
+TCP/IP Illustrated,W. Richard Stevens,Networking,978000000030,3
+Operating System Concepts,Abraham Silberschatz et al.,Operating Systems,978000000031,2
+Modern Operating Systems,Andrew S. Tanenbaum,Operating Systems,978000000032,2
+Operating Systems Three Easy Pieces,Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau,Operating Systems,978000000033,2
+Computer Organization and Design,David A. Patterson and John L. Hennessy,Computer Science,978000000034,2
+Computer Architecture A Quantitative Approach,John L. Hennessy and David A. Patterson,Computer Science,978000000035,3
+Introduction to Algorithms,Thomas H. Cormen et al.,Algorithms,978000000036,2
+Algorithms,Robert Sedgewick and Kevin Wayne,Algorithms,978000000037,2
+Grokking Algorithms,Aditya Bhargava,Algorithms,978000000038,2
+The Algorithm Design Manual,Steven S. Skiena,Algorithms,978000000039,2
+Data Structures and Algorithms in Python,Michael T. Goodrich et al.,Algorithms,978000000040,3
+Artificial Intelligence A Modern Approach,Stuart Russell and Peter Norvig,Artificial Intelligence,978000000041,2
+Deep Learning,Ian Goodfellow et al.,Artificial Intelligence,978000000042,2
+Hands-On Machine Learning,Aurelien Geron,Machine Learning,978000000043,2
+Pattern Recognition and Machine Learning,Christopher M. Bishop,Machine Learning,978000000044,2
+Machine Learning Yearning,Andrew Ng,Machine Learning,978000000045,3
+Introduction to Machine Learning with Python,Andreas C. Muller and Sarah Guido,Machine Learning,978000000046,2
+Natural Language Processing with Python,Steven Bird et al.,Artificial Intelligence,978000000047,2
+Speech and Language Processing,Daniel Jurafsky and James H. Martin,Artificial Intelligence,978000000048,2
+The Hundred-Page Machine Learning Book,Andriy Burkov,Machine Learning,978000000049,2
+Data Science from Scratch,Joel Grus,Data Science,978000000050,3
+Python for Data Analysis,Wes McKinney,Data Science,978000000051,2
+R for Data Science,Hadley Wickham and Garrett Grolemund,Data Science,978000000052,2
+Practical Statistics for Data Scientists,Peter Bruce et al.,Data Science,978000000053,2
+Storytelling with Data,Cole Nussbaumer Knaflic,Data Science,978000000054,2
+The Elements of Statistical Learning,Trevor Hastie et al.,Mathematics,978000000055,3
+Discrete Mathematics and Its Applications,Kenneth H. Rosen,Mathematics,978000000056,2
+Linear Algebra and Its Applications,David C. Lay,Mathematics,978000000057,2
+Calculus,James Stewart,Mathematics,978000000058,2
+Engineering Mathematics,K. A. Stroud,Mathematics,978000000059,2
+Computer Security Principles and Practice,William Stallings and Lawrie Brown,Cybersecurity,978000000060,3
+Security Engineering,Ross Anderson,Cybersecurity,978000000061,2
+The Web Application Hacker's Handbook,Dafydd Stuttard and Marcus Pinto,Cybersecurity,978000000062,2
+Cryptography and Network Security,William Stallings,Cybersecurity,978000000063,2
+Practical Malware Analysis,Michael Sikorski and Andrew Honig,Cybersecurity,978000000064,2
+The Phoenix Project,Gene Kim et al.,Software Engineering,978000000065,3
+Continuous Delivery,Jez Humble and David Farley,Software Engineering,978000000066,2
+Site Reliability Engineering,Betsy Beyer et al.,Software Engineering,978000000067,2
+The DevOps Handbook,Gene Kim et al.,Software Engineering,978000000068,2
+Refactoring,Martin Fowler,Software Engineering,978000000069,2
+Working Effectively with Legacy Code,Michael Feathers,Software Engineering,978000000070,3
+Code Complete,Steve McConnell,Software Engineering,978000000071,2
+Don't Make Me Think,Steve Krug,Web Development,978000000072,2
+Learning React,Alex Banks and Eve Porcello,Web Development,978000000073,2
+Fullstack Vue,Hassan Djirdeh et al.,Web Development,978000000074,2
+Building Microservices,Sam Newman,Software Engineering,978000000075,3
+Microservices Patterns,Chris Richardson,Software Engineering,978000000076,2
+RESTful Web APIs,Leonard Richardson et al.,Web Development,978000000077,2
+API Design Patterns,JJ Geewax,Web Development,978000000078,2
+The Linux Command Line,William Shotts,Operating Systems,978000000079,2
+How Linux Works,Brian Ward,Operating Systems,978000000080,3
+Pro Git,Scott Chacon and Ben Straub,Tools,978000000081,2
+Version Control with Git,Jon Loeliger and Matthew McCullough,Tools,978000000082,2
+The Art of Computer Programming Volume 1,Donald E. Knuth,Algorithms,978000000083,2
+Structure and Interpretation of Computer Programs,Harold Abelson and Gerald Jay Sussman,Computer Science,978000000084,2
+Compilers Principles Techniques and Tools,Alfred V. Aho et al.,Computer Science,978000000085,3
+Programming Language Pragmatics,Michael L. Scott,Computer Science,978000000086,2
+Computer Graphics Principles and Practice,John F. Hughes et al.,Computer Graphics,978000000087,2
+The Design of Everyday Things,Don Norman,Design,978000000088,2
+Thinking Fast and Slow,Daniel Kahneman,Psychology,978000000089,2
+Atomic Habits,James Clear,Personal Development,978000000090,3
+Deep Work,Cal Newport,Personal Development,978000000091,2
+The Lean Startup,Eric Ries,Business,978000000092,2
+Start with Why,Simon Sinek,Business,978000000093,2
+Zero to One,Peter Thiel with Blake Masters,Business,978000000094,2
+The Innovators,Walter Isaacson,Technology,978000000095,3
+Steve Jobs,Walter Isaacson,Biography,978000000096,2
+A Brief History of Time,Stephen Hawking,Science,978000000097,2
+Cosmos,Carl Sagan,Science,978000000098,2
+The Alchemist,Paulo Coelho,Fiction,978000000099,2
+1984,George Orwell,Fiction,978000000100,3
